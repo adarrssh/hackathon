@@ -6,7 +6,8 @@ const Heading = () => {
     <Container
         sx={{
             textAlign:'center',
-            fontWeight:'bold'
+            fontWeight:'bold',
+            paddingTop:'40px'
         }}
     >
         <p style={{

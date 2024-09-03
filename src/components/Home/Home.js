@@ -3,8 +3,7 @@ import React from 'react'
 import ResponsiveAppBar from './AppBar'
 import Intro from './Intro'
 import Stats from './stats/Index'
-import Cards from '../Community/Cards'
-import Heading from '../Community/Heading'
+import Community from '../Community/Index'
 import Challenges from '../Challenges/index'
 import Hackathon from '../Hackthon/index'
 const Home = () => {
@@ -13,8 +12,7 @@ const Home = () => {
      <ResponsiveAppBar/>   
      <Intro/>
      <Stats/>
-     <Heading/>
-     <Cards/>
+     <Community/>
      <Challenges/>
      <Hackathon/>
     </>

@@ -1,8 +1,13 @@
 import React from 'react'
+import Heading from './Heading'
+import Cards from './Cards'
 
 const Index = () => {
   return (
-    <div>Index</div>
+    <>
+    <Heading/>
+    <Cards/>
+    </>
   )
 }
 

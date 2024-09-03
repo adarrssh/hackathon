@@ -1,6 +1,7 @@
 import { Button, Container } from '@mui/material'
 import React from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import DropdownWithBackdrop from './DropDownButton';
 
 const index = () => {
     return (
@@ -49,13 +50,7 @@ const index = () => {
                         width: '15%',
                     }}
                 >
-                    <Button
-                        sx={{ backgroundColor: 'white', borderRadius: '12px', height: '50px', width: '100px', color: 'black' }}
-
-                    >
-
-                        <p>Filter</p>
-                    </Button>
+                   <DropdownWithBackdrop/>
                 </Container>
             </Container>
         </Container>
