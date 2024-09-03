@@ -5,7 +5,8 @@ import logo from '../../assets/image/skill.svg';
 
 
 
-const CardItem = () => {
+const CardItem = ({item}) => {
+
   return (
     <Container sx={{
       width: '550px',
@@ -20,6 +21,7 @@ const CardItem = () => {
     }}>
 
       <Container
+      disableGutters
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -27,7 +29,7 @@ const CardItem = () => {
         }}
       >
         <Container>
-          <img src={logo} alt="logo" />
+          <img src={item?.imgUrl} height={'40px'} alt="logo" />
         </Container>
         <Container
           sx={{
@@ -37,7 +39,7 @@ const CardItem = () => {
           }}
         >
 
-          Prove your skills
+          {item.heading}
         </Container>
         <Container
          sx={{
@@ -45,7 +47,7 @@ const CardItem = () => {
           fontWeight:'light'
          }}
         >
-        Gain substantial experience by solving real-world problems and pit against others to come up with innovative solutions.
+          {item.subHeading}
         </Container>
       </Container>
 

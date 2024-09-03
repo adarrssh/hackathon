@@ -1,6 +1,7 @@
 import { Card, Container } from '@mui/material'
 import React from 'react'
 import CardItem from './CardItem'
+import dataArr from './dataArr'
 
 const Cards = () => {
     return (
@@ -22,10 +23,12 @@ const Cards = () => {
                 gap:4
              }}
             >
-                <CardItem />
-                <CardItem />
-                <CardItem />
-                <CardItem />
+
+                {
+                    dataArr.map((item,key)=>(
+                        <CardItem key={key} item={item}/>
+                    ))
+                }
             </Container>
 
         </Container>
