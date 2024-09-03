@@ -5,6 +5,7 @@ import Hackthon from './Hackthon'
 const index = () => {
   return (
     <Container
+    disableGutters
     maxWidth={false}
      sx={{
         display:'flex',
@@ -17,7 +18,6 @@ const index = () => {
      }}
     >
         <Container
-        
         sx={{
             display:'flex',
             flexWrap:'wrap',

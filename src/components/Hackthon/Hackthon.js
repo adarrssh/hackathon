@@ -68,6 +68,7 @@ const Hackthon = () => {
                 fontSize:'16px',
                 fontWeight:'bold'
             }}>Data Science Bootcamp - <br /> Graded Datathon</p>
+            
             </Container>
 
 
