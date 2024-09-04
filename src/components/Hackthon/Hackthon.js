@@ -2,8 +2,12 @@ import { Button, Card, Container } from '@mui/material'
 import React from 'react'
 import Group1 from '../../assets/image/Group1.png'
 import Tick from '../../assets/image/Tick.png'
+import CountdownTimer from './countdown'
 
 const Hackthon = () => {
+
+
+    
   return (
     <Container
     disableGutters
@@ -78,17 +82,14 @@ const Hackthon = () => {
                 <p style={{fontSize:'14px'}}>Starts in</p>
             </Container>
 
+            <CountdownTimer/>
             <Container
                 sx={{textAlign:'center', marginTop:'-25px'}}
 
             >
-                <p style={{fontSize:'18px', fontWeight:'bold'}}>00 : 15 : 22</p>
-            </Container>
-            <Container
-                sx={{textAlign:'center', marginTop:'-25px'}}
-
-            >
-                <p style={{fontSize:'10px'}}>Days    Hours    Mins</p>
+                <p style={{fontSize:'10px'}}> 
+                     Days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mins&nbsp;&nbsp;
+                </p>
             </Container>
 
 

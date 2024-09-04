@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import React from 'react'
-import data from './data'
+import data from './dataArr'
 import SingleStatistics from './SingleStatistics'
 import GreyDivider from '../Divider'
 

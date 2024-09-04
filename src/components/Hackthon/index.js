@@ -1,6 +1,7 @@
 import { Container } from '@mui/material'
 import React from 'react'
 import Hackthon from './Hackthon'
+import CountdownTimer from './countdown'
 
 const index = () => {
   return (
@@ -32,6 +33,7 @@ const index = () => {
         <Hackthon/>
         <Hackthon/>
         <Hackthon/>
+        {/* <CountdownTimer/> */}
         </Container>
     </Container>
   )

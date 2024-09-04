@@ -2,7 +2,7 @@ import { Container, Divider } from '@mui/material'
 import React from 'react'
 import Statistics from './Statistics'
 import GreyDivider from '../Divider'
-import dataArr from './data'
+import dataArr from './dataArr'
 import SingleStatistics from './SingleStatistics'
 
 const Index = () => {
