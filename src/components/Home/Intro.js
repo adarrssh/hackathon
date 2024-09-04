@@ -4,7 +4,24 @@ import rocket from '../../assets/image/rocket.png';
 import yellow_rectangle from '../../assets/image/yello_rectangle.png';
 
 
-const Intro = () => {
+const Intro = ({setHackathonArr}) => {
+
+    const addHackathon = ( ) => {
+        setHackathonArr((prev)=>[
+            ...prev,
+            {
+                
+                    index:1,
+                    start_date : new Date('September 4, 2024 07:57:00'),
+                    end_date:new Date('September 4, 2024 14:35:00'),
+                    title:'Data Science 72 - Butterfly',
+                    subTitle:'Identification',
+                    imgUrl:'../../assets/cardimage/Group6.png'
+                
+            }
+        ])
+    }
+
     return (
         <Container maxWidth={false} sx={{ backgroundColor: '#003145' }}>
             <Container maxWidth={'xl'} sx={{ height: '80vh', display: 'flex', flexDirection: 'row' }}>
@@ -24,7 +41,7 @@ const Intro = () => {
 
                     <Container style={{ width: '90%', paddingTop: '20px' }}>
 
-                        <Button variant="contained" sx={{ color: 'black', backgroundColor: 'white', height: '45px',width:'200px', borderRadius: '0.5rem', textTransform: 'none',  fontSize:'18px' }}>Create Challenge</Button>
+                        <Button onClick={addHackathon} variant="contained" sx={{ color: 'black', backgroundColor: 'white', height: '45px',width:'200px', borderRadius: '0.5rem', textTransform: 'none',  fontSize:'18px' }}>Create Challenge</Button>
                     </Container>
                 </Container>
                 <Container style={{ display: 'flex',flex:'1', justifyContent:'flex-start', alignItems:'center' }}>

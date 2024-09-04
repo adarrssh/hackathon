@@ -13,7 +13,7 @@ const MyButton = ({ isBeforeStart, isAfterEnd, isBetweenStartAndEnd }) => {
   } else if (isBetweenStartAndEnd) {
     backgroundColor = 'rgba(68, 146, 76, 0.24)';
   } else {
-    backgroundColor = 'rgba(68, 146, 76, 0.24)'; // Default color
+    backgroundColor = 'rgba(68, 146, 76, 0.24)'; 
   }
 
   return (

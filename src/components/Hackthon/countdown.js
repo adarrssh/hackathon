@@ -38,14 +38,6 @@ const CountdownTimer = ({ item }) => {
     }
   }, [startDate, endDate, isBeforeStart, isBetweenStartAndEnd]);
 
-  const backgroundColor = isBeforeStart === 'upcoming'
-    ? 'pink'
-    : isAfterEnd === 'past'
-      ? 'yellow'
-      : isBetweenStartAndEnd === 'active'
-        ? 'black'
-        : 'rgba(200, 200, 200, 0.2)';
-
   return (
     <>
 

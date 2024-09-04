@@ -27,7 +27,6 @@ const Hackthon = ({ item }) => {
                 <img src={item.imgUrl} alt="img" />
             </Container>
 
-
             <Container
                 disableGutters
                 sx={{
@@ -42,17 +41,7 @@ const Hackthon = ({ item }) => {
                 }}
             >
 
-
-
-
-
-
-
-
-
                 <CountdownTimer item={item} />
-
-
 
                 <Container
                     sx={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}

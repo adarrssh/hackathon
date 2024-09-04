@@ -6,15 +6,15 @@ import Stats from './stats/Index'
 import Community from '../Community/Index'
 import Challenges from '../Challenges/index'
 import Hackathon from '../Hackthon/index'
-const Home = () => {
+const Home = ({hackathonArr,setHackathonArr}) => {
   return (
     <>
      <ResponsiveAppBar/>   
-     <Intro/>
+     <Intro setHackathonArr={setHackathonArr}/>
      <Stats/>
      <Community/>
      <Challenges/>
-     <Hackathon/>
+     <Hackathon hackathonArr={hackathonArr}/>
     </>
   )
 }
