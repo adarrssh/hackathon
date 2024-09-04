@@ -12,10 +12,10 @@ const SingleStatistics = ({item}) => {
             </Container>
             <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', lineHeight: '0' }}>
                 <Container sx={{ height: '30px' }}>
-                    <p style={{ fontSize: '24px' }}>{`${item?.heading}`}</p>
+                    <p style={{ fontSize: '24px', fontStyle:"normal", fontWeight:700, }}>{`${item?.heading}`}</p>
                 </Container>
                 <Container >
-                    <p >{`${item?.subHeading}`}</p>
+                    <p style={{paddingTop:'2px',fontSize:'16px', fontStyle:'normal', fontWeight:500}} >{`${item?.subHeading}`}</p>
                 </Container>
             </Container>
         </Container>

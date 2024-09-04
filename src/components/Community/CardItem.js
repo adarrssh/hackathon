@@ -34,8 +34,12 @@ const CardItem = ({item}) => {
         <Container
           sx={{
             fontSize:'24px',
-            fontWeight:'bold',
-            paddingTop:'10px'
+            fontWeight:600,
+            paddingTop:'10px',
+            lineHeight:'50px',
+            color:'#000',
+            letterSpacing:'-0.72px'
+
           }}
         >
 
@@ -44,7 +48,11 @@ const CardItem = ({item}) => {
         <Container
          sx={{
           paddingTop:'10px',
-          fontWeight:'light'
+          fontWeight:500,
+          fontSize:'16px',
+          color:'#64607D',
+          lineHeight:'24px',
+          letterSpacing:'-0.32px'
          }}
         >
           {item.subHeading}

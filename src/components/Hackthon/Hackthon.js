@@ -18,7 +18,7 @@ const Hackthon = ({ item }) => {
                 disableGutters
                 sx={{
                     height: '174px',
-                    backgroundColor: 'pink',
+                    // backgroundColor: 'pink',
 
                     borderTopLeftRadius: '15px',
                     borderTopRightRadius: '15px'
@@ -53,14 +53,17 @@ const Hackthon = ({ item }) => {
                             textTransform: 'none',
                             borderRadius: '10px',
                             width: '182px',
-                            height: '40px',
+                            height: '42px',
+                            display:'flex',
+                            justifyContent:'center',
+                            alignItems:'center'
                         }}
                     >
                         <img src={Tick} alt="img" height={'20px'} />
                         <p
                             style={{
                                 color: 'white',
-                                paddingLeft: '10px'
+                                paddingLeft: '14px'
                             }}
                         >
                             Participate Now

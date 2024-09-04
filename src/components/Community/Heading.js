@@ -11,8 +11,10 @@ const Heading = () => {
         }}
     >
         <p style={{
-            fontSize:'32px'
-        }}>Why Participate in <span style={{color:'#0FA958'}}>AI Challenges</span></p>
+            fontSize:'32px',
+            fontWeight:600,
+            lineHeight:'20px'
+        }}>Why Participate in <span style={{color:'#0FA958'}}>AI Challenges?</span></p>
     </Container>
   )
 }
