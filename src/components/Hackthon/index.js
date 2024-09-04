@@ -2,6 +2,7 @@ import { Container } from '@mui/material'
 import React from 'react'
 import Hackthon from './Hackthon'
 import CountdownTimer from './countdown'
+import dataArr from './dataArr'
 
 const index = () => {
   return (
@@ -25,15 +26,14 @@ const index = () => {
             gap:5,
         }}
         >
+          
+        {
+          dataArr.map((item,key)=>
 
-       
-        <Hackthon/>
-        <Hackthon/>
-        <Hackthon/>
-        <Hackthon/>
-        <Hackthon/>
-        <Hackthon/>
-        {/* <CountdownTimer/> */}
+            <Hackthon key={key} item={item}/>
+          )
+        }
+      
         </Container>
     </Container>
   )
