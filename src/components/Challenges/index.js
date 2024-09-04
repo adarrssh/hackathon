@@ -3,7 +3,7 @@ import React from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import DropdownWithBackdrop from './DropDownButton';
 
-const index = () => {
+const index = ({setHackathonArr}) => {
     return (
         <Container
             maxWidth={false}
@@ -50,7 +50,7 @@ const index = () => {
                         width: '15%',
                     }}
                 >
-                   <DropdownWithBackdrop/>
+                   <DropdownWithBackdrop setHackathonArr={setHackathonArr}/>
                 </Container>
             </Container>
         </Container>

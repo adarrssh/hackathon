@@ -3,7 +3,7 @@ import { Button, Menu, MenuItem, Checkbox, ListItemText, Backdrop, Container, Ty
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-export default function DropdownWithBackdrop() {
+export default function DropdownWithBackdrop({setHackathonArr}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [checkedItems, setCheckedItems] = useState([]);
     const open = Boolean(anchorEl);
