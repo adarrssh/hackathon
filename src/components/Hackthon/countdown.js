@@ -10,8 +10,10 @@ const CountdownTimer = ({ item }) => {
   const endDate = new Date(item.endDate);
 
   const isBeforeStart = currentDate < startDate;
+
   const isBetweenStartAndEnd =
     currentDate >= startDate && currentDate < endDate;
+    
   const isAfterEnd = currentDate >= endDate;
 
   const [timeRemaining, setTimeRemaining] = useState(

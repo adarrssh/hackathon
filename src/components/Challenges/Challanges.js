@@ -94,7 +94,7 @@ const Challenges = ({ hackathonArr ,setHackathonArr }) => {
             width: "15%",
           }}
         >
-          <DropdownWithBackdrop setHackathonArr={setHackathonArr} />
+          <DropdownWithBackdrop hackathonArr={hackathonArr} originalHackathonArr={originalHackathonArr} setHackathonArr={setHackathonArr} />
         </Container>
       </Container>
     </Container>

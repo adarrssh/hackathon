@@ -14,6 +14,7 @@ const arr = [
         endDate:new Date('September 6, 2024 12:57:00'),
         heading:'Data Science Bootcamp - Graded Datathon',
         description:'description',
+        difficulty:'Easy',
         imgUrl:Group1
     },
     {
@@ -22,6 +23,7 @@ const arr = [
         endDate:new Date('September 4, 2024 14:35:00'),
         heading:'Data Science 72 - Butterfly Identification',
         description:'description',
+        difficulty:'Easy',
         imgUrl:Group2
     },
     {
@@ -30,6 +32,7 @@ const arr = [
         endDate:new Date('September 6, 2024 12:57:00'),
         heading:'Data Sprint 71 - Weather Recognition',
         description:'description',
+        difficulty:'Medium',
         imgUrl:Group3
     },
     {
@@ -38,6 +41,7 @@ const arr = [
         endDate:new Date('September 6, 2024 12:57:00'),
         heading:'Data Sprint 70 - Airline Passendger Satisfaction',
         description:'description',
+        difficulty:'Medium',
         imgUrl:Group4
     },
     {
@@ -46,6 +50,7 @@ const arr = [
         endDate:new Date('September 6, 2024 12:57:00'),
         heading:'Engineering Graduates Employment Outcomes',
         description:'description',
+        difficulty:'Hard',
         imgUrl:Group5
     },
     {
@@ -54,6 +59,7 @@ const arr = [
         endDate:new Date('September 6, 2024 12:57:00'),
         heading:'Travel Insurance Claim Predication',
         description:'description',
+        difficulty:'Hard',
         imgUrl:Group6
     }
 ]
