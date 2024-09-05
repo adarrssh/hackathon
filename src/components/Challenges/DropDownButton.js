@@ -36,46 +36,70 @@ export default function DropdownWithBackdrop({
   useEffect(() => {
     if (filteredList.length == 0) {
       setHackathonArr(originalHackathonArr);
-    }else{
-        const recentAppliedCondition = filteredList[filteredList.length-1];
-        console.log(recentAppliedCondition)
-        addFilterCondition(recentAppliedCondition)
+    } else {
+      const recentAppliedCondition = filteredList[filteredList.length - 1];
+      addFilterCondition(recentAppliedCondition);
     }
   }, [filteredList]);
 
+  const checkStatus = (item) => {
+    const currentDate = new Date();
+    const startDate = new Date(item.startDate);
+    const endDate = new Date(item.endDate);
+    const isBeforeStart = currentDate < startDate;
+    const isBetweenStartAndEnd =
+      currentDate >= startDate && currentDate < endDate;
+    const isAfterEnd = currentDate >= endDate;
 
+    if (isBeforeStart) return "Upcoming";
+    else if (isBetweenStartAndEnd) return "Active";
+    else return "Past";
+  };
 
   const addFilterCondition = (condition) => {
-
     let arr = [];
-    if(filteredList.length > 1){
-        arr = [...hackathonArr]
+    let levelFilter = []
+
+    if (filteredList.length > 1) {
+      arr = [...hackathonArr];
     }
 
-    if (condition === "Easy") {
-
+    if (condition === "Active") {
       let filterArr = originalHackathonArr.filter(
-        (item) => item.difficulty == "Easy"
+        (item) => checkStatus(item) == "Active"
       );
       arr.push(...filterArr);
+      setHackathonArr([...arr]);
 
+    } else if (condition === "Upcoming") {
+      let filterArr = originalHackathonArr.filter(
+        (item) => checkStatus(item) == "Upcoming"
+      );
+      arr.push(...filterArr);
+      setHackathonArr([...arr]);
+
+    } else if (condition === "Past") {
+      let filterArr = originalHackathonArr.filter(
+        (item) => checkStatus(item) == "Past"
+      );
+      arr.push(...filterArr);
+      setHackathonArr([...arr]);
+    } else if (condition === "Easy") {
+      let filterArr = arr.filter((item) => item.difficulty == "Easy");
+      levelFilter.push(...filterArr);
+      setHackathonArr([...levelFilter]);
     } else if (condition === "Medium") {
-
-      let filterArr = originalHackathonArr.filter(
-        (item) => item.difficulty == "Medium"
-      );
-      arr.push(...filterArr);
-
+      let filterArr = arr.filter((item) => item.difficulty == "Medium");
+      levelFilter.push(...filterArr);
+      setHackathonArr([...levelFilter]);
     } else if (condition === "Hard") {
-
-      let filterArr = originalHackathonArr.filter(
-        (item) => item.difficulty == "Hard"
-      );
-      arr.push(...filterArr);
-
+      let filterArr = arr.filter((item) => item.difficulty == "Hard");
+      levelFilter.push(...filterArr);
+      setHackathonArr([...levelFilter]);
     }
 
-    setHackathonArr([...arr]);
+    console.log(arr);
+
   };
 
   // const removeFilterCondition = (condition) => {
@@ -127,7 +151,7 @@ export default function DropdownWithBackdrop({
 
     if (currentIndex === -1) {
       newChecked.push(value);
-      setFilteredList((prev)=>[...prev,value])
+      setFilteredList((prev) => [...prev, value]);
     } else {
       // removeFilterCondition(value)
       newChecked.splice(currentIndex, 1);

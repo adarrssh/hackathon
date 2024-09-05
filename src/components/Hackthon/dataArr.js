@@ -28,8 +28,8 @@ const arr = [
     },
     {
         id:3,
-        startDate : new Date('September 10, 2024 12:57:00'),
-        endDate:new Date('September 6, 2024 12:57:00'),
+        startDate : new Date('September 6, 2024 12:57:00'),
+        endDate:new Date('September 10, 2024 12:57:00'),
         heading:'Data Sprint 71 - Weather Recognition',
         description:'description',
         difficulty:'Medium',
@@ -38,7 +38,7 @@ const arr = [
     {
         id:4,
         startDate : new Date('September 11, 2024 12:57:00'),
-        endDate:new Date('September 6, 2024 12:57:00'),
+        endDate:new Date('September 18, 2024 12:57:00'),
         heading:'Data Sprint 70 - Airline Passendger Satisfaction',
         description:'description',
         difficulty:'Medium',
@@ -56,7 +56,7 @@ const arr = [
     {
         id:6,
         startDate : new Date('September 4, 2024 14:25:00'),
-        endDate:new Date('September 6, 2024 12:57:00'),
+        endDate:new Date('September 4, 2024 18:57:00'),
         heading:'Travel Insurance Claim Predication',
         description:'description',
         difficulty:'Hard',
