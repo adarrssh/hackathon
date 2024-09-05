@@ -13,7 +13,13 @@ dayjs.extend(customParseFormat);
 
 export default function ChallengeDatePicker({defaultDate,setDate}) {
   
-  const curr_date = new Date('September 4, 2024 10:57:00');
+  // Function to format the date
+  const formatDate = (date) => {
+    if (!date) return '';
+    return dayjs(date).format('MMMM D, YYYY HH:mm:ss');
+  };
+
+  const curr_date = formatDate(new Date());
   const [value, setValue] = React.useState(dayjs(curr_date));
 
   const handleDateChange = (newValue) => {
@@ -22,11 +28,6 @@ export default function ChallengeDatePicker({defaultDate,setDate}) {
     setValue(newValue);
   };
 
-  // Function to format the date
-  const formatDate = (date) => {
-    if (!date) return '';
-    return dayjs(date).format('MMMM D, YYYY HH:mm:ss');
-  };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

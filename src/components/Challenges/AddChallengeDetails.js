@@ -31,38 +31,38 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
   };
 
   const handleFileChange = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        // Create an object URL for the file
-        const url = URL.createObjectURL(file);
-        setImageUrl(url);
-      }
+    const file = event.target.files[0];
+    if (file) {
+      // Create an object URL for the file
+      const url = URL.createObjectURL(file);
+      setImageUrl(url);
+    }
   };
 
   const addNewChallange = () => {
-    console.log(startDate,endDate)
+    console.log(startDate, endDate)
     if (
-      startDate > endDate||
+      startDate > endDate ||
       difficulty == "" ||
       description == "" ||
       imageUrl == ""
     ) {
       alert("Error: Invalid data");
-    }else{
+    } else {
 
-      setHackathonArr((prev)=>[
+      setHackathonArr((prev) => [
         ...prev,
         {
-          id:uuidv4(),
-          created_at:new Date(),
+          id: uuidv4(),
+          created_at: new Date(),
           difficulty,
           heading,
           description,
           startDate,
           endDate,
-          imgUrl:imageUrl
+          imgUrl: imageUrl
         }
-        
+
       ])
       navigate('/')
     }
@@ -122,7 +122,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker defaultDate={new Date()} setDate={setEndDate}/>
+        <ChallengeDatePicker defaultDate={new Date()} setDate={setEndDate} />
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
@@ -136,14 +136,17 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             border: "1px solid black",
             borderRadius: "5px",
             backgroundColor: "#F8F9FD",
-            padding:'20px'
+            padding: '20px'
           }}
           variant="outlined"
           onChange={(e) => setDescription(e.target.value)}
         />
       </Container>
-      <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
+      <Container maxWidth="xl" sx={{ marginTop: "20px", display: 'flex', flexDirection: 'column' }}>
         <p style={{ fontSize: "16px" }}>Image</p>
+        {(imageUrl != '') && <div style={{ width: "249px", height: "122pz", border: '1px solid black' }}>
+          <img src={imageUrl} alt="img" width={"249px"} height={"122px"} />
+        </div>}
         <Button
           onChange={handleFileChange}
           component="label"
@@ -153,9 +156,11 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             color: "#666666",
             width: "236px",
             height: "47px",
+            marginTop: "10px"
           }}
           variant="contained"
           tabIndex={-1}
+
         >
           Upload
           <CloudUploadIcon sx={{ marginLeft: "8px" }} />{" "}

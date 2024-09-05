@@ -37,9 +37,9 @@ export default function DropdownWithBackdrop({
     if (filteredList.length == 0) {
       setHackathonArr(originalHackathonArr);
     } else {
-      const recentAppliedCondition = filteredList[filteredList.length - 1];
-      addFilterCondition(recentAppliedCondition);
+      addFilterCondition();
     }
+    console.log('inside ')
   }, [filteredList]);
 
   const checkStatus = (item) => {
@@ -56,88 +56,97 @@ export default function DropdownWithBackdrop({
     else return "Past";
   };
 
-  const addFilterCondition = (condition) => {
+  const addFilterCondition = () => {
     let arr = [];
-    let levelFilter = []
 
-    if (filteredList.length > 1) {
-      arr = [...hackathonArr];
-    }
-
-    if (condition === "Active") {
+    if (filteredList.indexOf("Active") != -1) {
       let filterArr = originalHackathonArr.filter(
         (item) => checkStatus(item) == "Active"
       );
       arr.push(...filterArr);
-      setHackathonArr([...arr]);
+      console.log('active',arr)
+    }
 
-    } else if (condition === "Upcoming") {
+    if (filteredList.indexOf("Upcoming") != -1) {
       let filterArr = originalHackathonArr.filter(
         (item) => checkStatus(item) == "Upcoming"
       );
       arr.push(...filterArr);
-      setHackathonArr([...arr]);
+    }
 
-    } else if (condition === "Past") {
+    if (filteredList.indexOf("Past") != -1) {
       let filterArr = originalHackathonArr.filter(
         (item) => checkStatus(item) == "Past"
       );
       arr.push(...filterArr);
-      setHackathonArr([...arr]);
-    } else if (condition === "Easy") {
-      let filterArr = arr.filter((item) => item.difficulty == "Easy");
-      levelFilter.push(...filterArr);
-      setHackathonArr([...levelFilter]);
-    } else if (condition === "Medium") {
-      let filterArr = arr.filter((item) => item.difficulty == "Medium");
-      levelFilter.push(...filterArr);
-      setHackathonArr([...levelFilter]);
-    } else if (condition === "Hard") {
-      let filterArr = arr.filter((item) => item.difficulty == "Hard");
-      levelFilter.push(...filterArr);
-      setHackathonArr([...levelFilter]);
     }
 
-    console.log(arr);
+    if (
+      filteredList.indexOf("Easy") === -1 &&
+      filteredList.indexOf("Medium") === -1 &&
+      filteredList.indexOf("Hard") === -1
+    ) {
+      console.log('inside 1st if')
+      setHackathonArr(arr);
+    } else {
+      console.log("here", filteredList.indexOf("Easy") === -1,filteredList.indexOf("Medium") === -1, filteredList.indexOf("Hard") === -1);
+      let levelFilter = [];
 
+      if (filteredList.indexOf("Easy") != -1) {
+        let filterArr = arr.filter((item) => item.difficulty == "Easy");
+        levelFilter.push(...filterArr);
+      }
+
+      if (filteredList.indexOf("Medium") != -1) {
+        let filterArr = arr.filter((item) => item.difficulty == "Medium");
+        levelFilter.push(...filterArr);
+      }
+
+      if (filteredList.indexOf("Hard") != -1) {
+        let filterArr = arr.filter((item) => item.difficulty == "Hard");
+        levelFilter.push(...filterArr);
+      }
+
+      setHackathonArr(levelFilter);
+    }
   };
 
-  const removeFilterCondition = (condition) => {
+  // const removeFilterCondition = (condition) => {
 
-      let arr = [];
+  //     let arr = [];
 
-      if(condition === 'Easy'){
-          let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Easy');
-          setHackathonArr([...filterArr]);
-        }
+  //     if(condition === 'Easy'){
+  //         let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Easy');
+  //         setHackathonArr([...filterArr]);
+  //       }
 
-      if(condition === 'Medium'){
-          let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Medium');
-          setHackathonArr([...filterArr]);
-      }
+  //     if(condition === 'Medium'){
+  //         let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Medium');
+  //         setHackathonArr([...filterArr]);
+  //     }
 
-      if(condition === 'Hard'){
-          let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Hard');
-          setHackathonArr([...filterArr]);
-      }
+  //     if(condition === 'Hard'){
+  //         let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Hard');
+  //         setHackathonArr([...filterArr]);
+  //     }
 
-      if(condition === 'Active'){
-          let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Active');
-          console.log(filterArr)
-          setHackathonArr([...filterArr]);
-      }
+  //     if(condition === 'Active'){
+  //         let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Active');
+  //         console.log(filterArr)
+  //         setHackathonArr([...filterArr]);
+  //     }
 
-      if(condition === 'Upcoming'){
-          let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Upcoming');
-          setHackathonArr([...filterArr]);
-      }
+  //     if(condition === 'Upcoming'){
+  //         let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Upcoming');
+  //         setHackathonArr([...filterArr]);
+  //     }
 
-      if(condition === 'Past'){
-          let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Past');
-          setHackathonArr([...filterArr]);
-      }
+  //     if(condition === 'Past'){
+  //         let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Past');
+  //         setHackathonArr([...filterArr]);
+  //     }
 
-  }
+  // }
 
   const handleToggle = (value) => {
     const currentIndex = checkedItems.indexOf(value);
@@ -145,11 +154,26 @@ export default function DropdownWithBackdrop({
 
     if (currentIndex === -1) {
       newChecked.push(value);
-      setFilteredList((prev) => [...prev, value]);
+      if(value == 'All'){
+        let arr = []
+        if(filterCondition.indexOf('Active') === -1){
+          arr.push('Active')
+        }
+        if(filterCondition.indexOf('Upcoming') === -1){
+          arr.push('Upcoming')
+        }
+        if(filterCondition.indexOf('Past') === -1){
+          arr.push('Past')
+        }
+
+        setFilteredList((prev) => [...prev, ...arr]);
+      }else{
+        setFilteredList((prev) => [...prev, value]);
+      }
     } else {
-      let arr = filteredList.filter((item)=> item != value);
+      let arr = filteredList.filter((item) => item != value);
       setFilteredList([...arr]);
-      removeFilterCondition(value)
+      // removeFilterCondition(value)
       newChecked.splice(currentIndex, 1);
     }
 
