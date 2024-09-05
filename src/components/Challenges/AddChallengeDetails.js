@@ -97,7 +97,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker setDate={setStartDate} />
+        <ChallengeDatePicker defaultDate={new Date()} setDate={setStartDate} />
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "40px", position: "relative" }}>
@@ -111,7 +111,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker setDate={setEndDate}/>
+        <ChallengeDatePicker defaultDate={new Date()} setDate={setEndDate}/>
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "20px" }}>

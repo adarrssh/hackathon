@@ -12,6 +12,8 @@ const Details = ({hackathonArr, setHackathonArr}) => {
 
   const item = hackathonArr.find((element)=> element.id == id)
 
+  console.log(hackathonArr,item)
+
   const deleteHackathon = () =>{
     const filterArr = hackathonArr.filter((element)=> element.id != id);
     setHackathonArr(filterArr);
