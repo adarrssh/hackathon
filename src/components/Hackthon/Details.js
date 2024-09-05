@@ -4,15 +4,30 @@ import level from "../../assets/image/level.jpg";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import rectangle from "../../assets/image/green_rectangle.png";
 import { useNavigate, useParams } from "react-router-dom";
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+// Extend dayjs with the necessary plugins
+dayjs.extend(customParseFormat);
+dayjs.extend(relativeTime);
+
+
 
 const Details = ({hackathonArr, setHackathonArr}) => {
+
+  const formatDate = (date) => {
+    if (!date) return '';
+    
+    // Format the date as '17th Jun'22 09:00 PM'
+    return dayjs(date).format('D MMM\'YY hh:mm A');
+  };
 
   const navigate = useNavigate()
   const {id} = useParams();
 
   const item = hackathonArr.find((element)=> element.id == id)
 
-  console.log(hackathonArr,item)
 
   const deleteHackathon = () =>{
     const filterArr = hackathonArr.filter((element)=> element.id != id);
@@ -66,7 +81,7 @@ const Details = ({hackathonArr, setHackathonArr}) => {
                 }}
               >
                 {" "}
-                Starts on 17th Jun'22 09:00 PM (India Standard Time)
+                Starts on {formatDate(item.startDate)} (India Standard Time)
               </p>
             </div>
 
@@ -78,7 +93,7 @@ const Details = ({hackathonArr, setHackathonArr}) => {
                 fontWeight: "bold",
               }}
             >
-              Data Sprint 72 - Butterfly Identification
+             {item.heading}
             </div>
 
             <div style={{ paddingTop: "33px", color: "white" }}>
@@ -97,7 +112,7 @@ const Details = ({hackathonArr, setHackathonArr}) => {
                 }}
               >
                 <img src={level} alt="" />
-                <p style={{ paddingTop: "4px", paddingLeft: "5px" }}>Easy</p>
+                <p style={{ paddingTop: "4px", paddingLeft: "5px" }}>{item.difficulty}</p>
               </Button>
             </div>
           </Container>

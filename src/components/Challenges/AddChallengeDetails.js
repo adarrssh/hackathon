@@ -40,22 +40,33 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
   };
 
   const addNewChallange = () => {
-    setHackathonArr((prev)=>[
-      ...prev,
-      {
-        id:uuidv4(),
-        created_at:new Date(),
-        difficulty,
-        heading,
-        description,
-        startDate,
-        endDate,
-        imgUrl:imageUrl
-      }
+    console.log(startDate,endDate)
+    if (
+      startDate > endDate||
+      difficulty == "" ||
+      description == "" ||
+      imageUrl == ""
+    ) {
+      alert("Error: Invalid data");
+    }else{
 
-    ])
+      setHackathonArr((prev)=>[
+        ...prev,
+        {
+          id:uuidv4(),
+          created_at:new Date(),
+          difficulty,
+          heading,
+          description,
+          startDate,
+          endDate,
+          imgUrl:imageUrl
+        }
+        
+      ])
+      navigate('/')
+    }
 
-    navigate('/')
   };
 
   return (

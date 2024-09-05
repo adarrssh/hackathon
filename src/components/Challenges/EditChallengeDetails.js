@@ -15,7 +15,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import img1 from "../../assets/cardimage/Group1.png";
 import arrow from "../../assets/image/arrow.png";
 import change_image from "../../assets/image/change_image.png";
-import './EditChallengeDetails.css'
+import "./EditChallengeDetails.css";
 
 const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
   const navigate = useNavigate();
@@ -23,15 +23,12 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
 
   const item = hackathonArr.find((element) => element.id == id);
 
-
-
-  const [difficulty, setDifficulty] = useState('');
+  const [difficulty, setDifficulty] = useState("");
   const [heading, setHeading] = useState(item.heading);
   const [description, setDescription] = useState(item.description);
   const [startDate, setStartDate] = useState(item.startDate);
   const [endDate, setEndDate] = useState(item.endDate);
   const [imageUrl, setImageUrl] = useState(item.imgUrl);
-
 
   const handleChange = (event) => {
     setDifficulty(event.target.value);
@@ -43,7 +40,6 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
     fileInputRef.current.click();
   };
 
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -54,23 +50,33 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
   };
 
   const editChallenge = () => {
-    const filterdArr = hackathonArr.filter((item)=> item.id != id);
+    const filterdArr = hackathonArr.filter((item) => item.id != id);
 
-    setHackathonArr((prev) => [
-      ...filterdArr,
-      {
-        id: uuidv4(),
-        created_at: new Date(),
-        difficulty: difficulty != '' ? difficulty : item.difficulty ,
-        heading,
-        description,
-        startDate,
-        endDate,
-        imgUrl: imageUrl,
-      },
-    ]);
+    const newObj = {
+      id: uuidv4(),
+      created_at: new Date(),
+      difficulty: difficulty != "" ? difficulty : item.difficulty,
+      heading,
+      description,
+      startDate,
+      endDate,
+      imgUrl: imageUrl,
+    };
 
-    navigate("/");
+    console.log(startDate, endDate);
+
+    if (
+      new Date(startDate) > new Date(endDate) ||
+      newObj.difficulty == "" ||
+      newObj.description == "" ||
+      newObj.imgUrl == ""
+    ) {
+      alert("Error: Invalid data");
+    } else {
+      setHackathonArr((prev) => [...filterdArr, newObj]);
+      navigate("/");
+    }
+
   };
 
   return (
@@ -112,7 +118,10 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker defaultDate={new Date(startDate)}  setDate={setStartDate} />
+        <ChallengeDatePicker
+          defaultDate={new Date(startDate)}
+          setDate={setStartDate}
+        />
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "40px", position: "relative" }}>
@@ -126,13 +135,16 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker defaultDate={new Date(endDate)} setDate={setEndDate} />
+        <ChallengeDatePicker
+          defaultDate={new Date(endDate)}
+          setDate={setEndDate}
+        />
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
         <p style={{ fontSize: "16px" }}>Description</p>
         <textarea
-        value={description}
+          value={description}
           id="description"
           style={{
             width: "1000px",
@@ -167,7 +179,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
         >
           <img src={imageUrl} alt="img" width={"249px"} height={"122px"} />
           <div
-          className="change-image-div"
+            className="change-image-div"
             onClick={handleButtonClick}
             style={{
               paddingLeft: "50px",

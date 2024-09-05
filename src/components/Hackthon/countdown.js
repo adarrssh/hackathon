@@ -56,7 +56,7 @@ const CountdownTimer = ({ item }) => {
           isAfterEnd={isAfterEnd}
         />
       </Container>
-      <Container sx={{ textAlign: "center", width:'246px'}}>
+      <Container disableGutters sx={{ textAlign: "center", width:'246px'}}>
         <p
           style={{
             fontSize: "16px",
