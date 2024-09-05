@@ -3,7 +3,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import { useState } from 'react';
 import data from './components/Hackthon/dataArr'
-import ChallengeDetails from './components/Challenges/ChallengeDetails';
+import AddChallengeDetails from './components/Challenges/AddChallengeDetails';
 import ResponsiveAppBar from './components/Home/AppBar';
 import Details from './components/Hackthon/Details';
 
@@ -16,7 +16,7 @@ function App() {
       <ResponsiveAppBar />
       <Routes>
         <Route exact path="/" element={<Home hackathonArr={hackathonArr} setHackathonArr={setHackathonArr} />} />
-        <Route exact path="/edit" element={<ChallengeDetails />} />
+        <Route exact path="/add" element={<AddChallengeDetails hackathonArr={hackathonArr} setHackathonArr={setHackathonArr} />} />
         <Route exact path="/details" element={<Details />} />
       </Routes>
     </>

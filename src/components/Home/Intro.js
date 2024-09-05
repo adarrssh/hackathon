@@ -2,8 +2,11 @@ import { Button, Container } from "@mui/material";
 import React from "react";
 import rocket from "../../assets/image/rocket.png";
 import yellow_rectangle from "../../assets/image/yello_rectangle.png";
+import { useNavigate } from "react-router-dom";
 
 const Intro = ({ setHackathonArr }) => {
+
+  const navigate = useNavigate();
   const addHackathon = () => {
     setHackathonArr((prev) => [
       ...prev,
@@ -61,7 +64,7 @@ const Intro = ({ setHackathonArr }) => {
 
           <Container sx={{ width: "90%", paddingTop: "20px" }}>
             <Button
-              onClick={addHackathon}
+              onClick={()=> navigate('/add')}
               variant="contained"
               sx={{
                 color: "black",

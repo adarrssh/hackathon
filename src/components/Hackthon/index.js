@@ -5,8 +5,6 @@ import CountdownTimer from './countdown'
 import dataArr from './dataArr'
 
 const index = ({hackathonArr}) => {
-
-  console.log(hackathonArr)
   return (
     <Container
       disableGutters

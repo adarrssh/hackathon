@@ -13,24 +13,51 @@ import React, { useState } from "react";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
 import ChallengeDatePicker from "./DatePicker";
+import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 
-const ChallengeDetails = () => {
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
 
+const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
+
+  const navigate = useNavigate()
   const [difficulty, setDifficulty] = useState("");
+  const [heading, setHeading] = useState("");
+  const [description, setDescription] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [imageUrl, setImageUrl] = useState('');
+
+
 
   const handleChange = (event) => {
     setDifficulty(event.target.value);
+  };
+
+  const handleFileChange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        // Create an object URL for the file
+        const url = URL.createObjectURL(file);
+        setImageUrl(url);
+      }
+  };
+
+  const addNewChallange = () => {
+    setHackathonArr((prev)=>[
+      ...prev,
+      {
+        created_at:new Date(),
+        difficulty,
+        heading,
+        description,
+        startDate,
+        endDate,
+        imgUrl:imageUrl
+      }
+
+    ])
+
+    navigate('/')
   };
 
   return (
@@ -57,19 +84,12 @@ const ChallengeDetails = () => {
           }}
           size="small"
           variant="outlined"
-          fullWidth
+          value={heading}
+          onChange={(e) => setHeading(e.target.value)}
         />
       </Container>
       <Container maxWidth="xl" sx={{ marginTop: "40px", position: "relative" }}>
         <p style={{ fontSize: "16px" }}>Start Date</p>
-        {/* <TextField
-                    multiline
-                    sx={{ position:'absolute', bottom:'0px', width: '500px', marginTop: '5px', border: '1px solid black', borderRadius: '5px' }}
-                    size='small'
-                    variant="outlined"
-                    fullWidth
-                    // placeholder="Enter your text here..."
-                /> */}
 
         <div
           style={{
@@ -79,19 +99,11 @@ const ChallengeDetails = () => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker />
+        <ChallengeDatePicker setDate={setStartDate} />
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "40px", position: "relative" }}>
         <p style={{ fontSize: "16px" }}>End Date</p>
-        {/* <TextField
-                    multiline
-                    sx={{ position:'absolute', bottom:'0px', width: '500px', marginTop: '5px', border: '1px solid black', borderRadius: '5px' }}
-                    size='small'
-                    variant="outlined"
-                    fullWidth
-                    // placeholder="Enter your text here..."
-                /> */}
 
         <div
           style={{
@@ -101,14 +113,13 @@ const ChallengeDetails = () => {
             border: "1.5px solid black",
           }}
         ></div>
-        <ChallengeDatePicker />
+        <ChallengeDatePicker setDate={setEndDate}/>
       </Container>
 
       <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
         <p style={{ fontSize: "16px" }}>Description</p>
         <textarea
           id="description"
-          multiline
           style={{
             width: "1000px",
             height: "252px",
@@ -116,14 +127,16 @@ const ChallengeDetails = () => {
             border: "1px solid black",
             borderRadius: "5px",
             backgroundColor: "#F8F9FD",
+            padding:'20px'
           }}
           variant="outlined"
-          fullWidth
+          onChange={(e) => setDescription(e.target.value)}
         />
       </Container>
       <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
         <p style={{ fontSize: "16px" }}>Image</p>
         <Button
+          onChange={handleFileChange}
           component="label"
           role={undefined}
           sx={{
@@ -150,7 +163,6 @@ const ChallengeDetails = () => {
       <Container maxWidth="xl" sx={{ marginTop: "40px" }}>
         <p style={{ fontSize: "16px" }}>Level Type</p>
         <FormControl
-          fullWidth
           variant="outlined"
           sx={{ minWidth: 120, marginTop: "10px" }}
         >
@@ -180,6 +192,7 @@ const ChallengeDetails = () => {
             borderRadius: "10px",
             padding: "6px 18px 6px 18px",
           }}
+          onClick={addNewChallange}
         >
           Create Challenge
         </Button>

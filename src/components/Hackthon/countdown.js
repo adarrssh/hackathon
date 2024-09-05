@@ -6,8 +6,8 @@ import MyButton from "./MyButton";
 
 const CountdownTimer = ({ item }) => {
   const currentDate = new Date();
-  const startDate = new Date(item.start_date);
-  const endDate = new Date(item.end_date);
+  const startDate = new Date(item.startDate);
+  const endDate = new Date(item.endDate);
 
   const isBeforeStart = currentDate < startDate;
   const isBetweenStartAndEnd =
@@ -54,14 +54,14 @@ const CountdownTimer = ({ item }) => {
           isAfterEnd={isAfterEnd}
         />
       </Container>
-      <Container sx={{ textAlign: "center" }}>
+      <Container sx={{ textAlign: "center", width:'246px'}}>
         <p
           style={{
             fontSize: "16px",
             fontWeight: "bold",
           }}
         >
-          {item.title} <br /> {item.subTitle}
+          {item.heading}
         </p>
       </Container>
 

@@ -3,7 +3,6 @@ import { Button } from '@mui/material';
 
 const MyButton = ({ isBeforeStart, isAfterEnd, isBetweenStartAndEnd }) => {
 
-    console.log(isBeforeStart,isBetweenStartAndEnd,isAfterEnd)
   let backgroundColor;
 
   if (isBeforeStart) {

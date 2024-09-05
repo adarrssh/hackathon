@@ -11,17 +11,19 @@ import "./index.css";
 // Extend dayjs with the customParseFormat plugin
 dayjs.extend(customParseFormat);
 
-export default function ChallengeDatePicker() {
+export default function ChallengeDatePicker({ setDate }) {
   const [value, setValue] = React.useState(null);
 
   const handleDateChange = (newValue) => {
+    const formattedDate = formatDate(newValue);
+    setDate(new Date(formattedDate));
     setValue(newValue);
   };
 
   // Function to format the date
   const formatDate = (date) => {
     if (!date) return "";
-    return dayjs(date).format("Do MMM'YY hh:mm A");
+    return dayjs(date).format("MMMM D, YYYY hh:mm:ss A");
   };
 
   return (
