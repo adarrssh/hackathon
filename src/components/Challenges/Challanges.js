@@ -20,7 +20,7 @@ const Challenges = ({ hackathonArr ,setHackathonArr }) => {
     if(searchText  === ''){
       setHackathonArr(originalHackathonArr)
     }else{
-      const arr = originalHackathonArr.filter((item)=> item.heading.includes(searchText));
+      const arr = originalHackathonArr.filter((item)=> item.heading.toLowerCase().includes(searchText.toLowerCase()));
       setHackathonArr(arr);
     }
   },[searchText])
