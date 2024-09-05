@@ -3,11 +3,19 @@ import React from "react";
 import Group1 from "../../assets/image/Group1.png";
 import Tick from "../../assets/image/Tick.png";
 import CountdownTimer from "./countdown";
+import { useNavigate } from "react-router-dom";
 
 const Hackthon = ({ item }) => {
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/details/${item.id}`);
+  };
+
   return (
     <Container
-      disableGutters
+    onClick={handleClick}
+    disableGutters
       sx={{
         width: "354px",
         height: "473px",

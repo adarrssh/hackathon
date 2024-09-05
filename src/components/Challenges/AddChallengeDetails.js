@@ -5,13 +5,10 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextareaAutosize,
   TextField,
-  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
 import ChallengeDatePicker from "./DatePicker";
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
@@ -46,6 +43,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
     setHackathonArr((prev)=>[
       ...prev,
       {
+        id:uuidv4(),
         created_at:new Date(),
         difficulty,
         heading,

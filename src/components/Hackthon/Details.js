@@ -3,8 +3,21 @@ import React from "react";
 import level from "../../assets/image/level.jpg";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import rectangle from "../../assets/image/green_rectangle.png";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Details = () => {
+const Details = ({hackathonArr, setHackathonArr}) => {
+
+  const navigate = useNavigate()
+  const {id} = useParams();
+
+  const item = hackathonArr.find((element)=> element.id == id)
+
+  const deleteHackathon = () =>{
+    const filterArr = hackathonArr.filter((element)=> element.id != id);
+    setHackathonArr(filterArr);
+    navigate('/')
+  }
+
   return (
     <>
       <Container
@@ -152,6 +165,7 @@ const Details = () => {
               }}
             >
               <Button
+                onClick={()=>navigate(`/edit/${id}`)}
                 style={{
                   display: "flex",
                   width: "91px",
@@ -170,6 +184,7 @@ const Details = () => {
                 Edit
               </Button>
               <Button
+                onClick={deleteHackathon}
                 style={{
                   display: "flex",
                   width: "91px",
@@ -223,15 +238,11 @@ const Details = () => {
             means "scaly wings" in Greek. This name perfectly suits the insects
             in this group because their wings are covered with thousands of tiny
             scales overlapping in rows.
-          </p>
-          <p>
             An agency of the Governmental Wildlife Conservation is planning to
             implement an automated system based on computer vision so that it
             can identify butterflies based on captured images. As a consultant
             for this project, you are responsible for developing an efficient
             model.
-          </p>
-          <p>
             Your Task is to build an Image Classification Model using CNN that
             classifies to which class of weather each image belongs to.
           </p>
