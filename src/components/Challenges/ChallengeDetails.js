@@ -51,14 +51,14 @@ const ChallengeDetails = () => {
                 >
                     Start Date
                 </p>
-                <TextField
+                {/* <TextField
                     multiline
                     sx={{ width: '500px', marginTop: '5px', border: '1px solid black', borderRadius: '5px' }}
                     size='small'
                     variant="outlined"
                     fullWidth
                     placeholder="Enter your text here..."
-                />
+                /> */}
                 <ChallengeDatePicker/>
             </Container>
             <Container maxWidth="xl" sx={{ marginTop: '40px' }}>

@@ -1,27 +1,29 @@
-import { Button, Container } from '@mui/material'
-import React from 'react'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import DropdownWithBackdrop from './DropDownButton';
+import { Button, Container, TextareaAutosize } from "@mui/material";
 
-const index = ({setHackathonArr}) => {
+import React from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import search from '../../assets/image/carbon_search.png'
+import SearchIcon from '@mui/icons-material/Search';
+import DropdownWithBackdrop from "./DropDownButton";
+
+const index = ({ setHackathonArr }) => {
     return (
         <Container
             maxWidth={false}
             sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                backgroundColor: '#002A3B',
-                paddingTop: '40px',
-                paddingBottom: '40px'
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: "#002A3B",
+                paddingTop: "40px",
+                paddingBottom: "40px",
             }}
         >
             <Container
                 sx={{
-                    textAlign: 'center',
-                    color: 'white',
-                    fontSize: '28px',
-                    fontWeight: 'bold',
-
+                    textAlign: "center",
+                    color: "white",
+                    fontSize: "28px",
+                    fontWeight: "bold",
                 }}
             >
                 Explore Challenges
@@ -29,32 +31,55 @@ const index = ({setHackathonArr}) => {
 
             <Container
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    paddingTop: '60px',
-                    paddingBottom: '40px'
+                    display: "flex",
+                    flexDirection: "row",
+
+                    paddingTop: "60px",
+                    paddingBottom: "40px",
                 }}
             >
                 <Container
                     sx={{
+                        display: "flex",
+                        // justifyContent:'center',
+                        alignItems: "center",
                         backgroundColor: '#FFFFFF',
-                        width: '85%',
-                        borderRadius: '12px',
-                        height: '50px'
+                        // backgroundColor: "yellow",
+                        width: "85%",
+                        borderRadius: "12px",
+                        height: "50px",
                     }}
                 >
-                    1
+
+                    <img src={search} alt="" />
+                    <textarea
+                        placeholder="search"
+                        style={{
+                            // backgroundColor:"yellow",
+                            overflow:'hidden',
+                            marginLeft:'10px',
+                            color: "#858585",
+                            fontSize: "18px",
+                            fontStyle: "normal",
+                            fontWeight: 300,
+                            height:'20px',
+                            width:'90%',
+                            border: "none",
+                            outline: "none", // This removes the border color on focus
+                            resize: "none", // This disables the resize functionality
+                        }}
+                    />
                 </Container>
                 <Container
                     sx={{
-                        width: '15%',
+                        width: "15%",
                     }}
                 >
-                   <DropdownWithBackdrop setHackathonArr={setHackathonArr}/>
+                    <DropdownWithBackdrop setHackathonArr={setHackathonArr} />
                 </Container>
             </Container>
         </Container>
-    )
-}
+    );
+};
 
-export default index
+export default index;

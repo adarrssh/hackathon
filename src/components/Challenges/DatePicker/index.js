@@ -6,6 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TextField } from '@mui/material';
+import './index.css'
 
 // Extend dayjs with the customParseFormat plugin
 dayjs.extend(customParseFormat);
@@ -24,12 +25,13 @@ export default function ChallengeDatePicker() {
   };
 
   return (
-    <LocalizationProvider  dateAdapter={AdapterDayjs}>
+    <LocalizationProvider   dateAdapter={AdapterDayjs}>
         <DatePicker
+        className='bb'
           value={value}
           onChange={handleDateChange}
-          sx={{}}
-          renderInput={(params) => <TextField sx={{width:'1200px'}} {...params} />}
+
+          renderInput={(params) => <TextField {...params} />}
         />
     </LocalizationProvider>
   );
