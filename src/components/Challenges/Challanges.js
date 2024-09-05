@@ -1,12 +1,30 @@
 import { Button, Container, TextareaAutosize } from "@mui/material";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import search from "../../assets/image/carbon_search.png";
 import SearchIcon from "@mui/icons-material/Search";
 import DropdownWithBackdrop from "./DropDownButton";
 
-const index = ({ setHackathonArr }) => {
+const Challenges = ({ hackathonArr ,setHackathonArr }) => {
+
+  const [searchText, setSearchText] = useState('')
+  const [originalHackathonArr, setOriginalHackathonArr] = useState(hackathonArr)
+
+  const handleChange = (e) =>{
+    setSearchText(e.target.value)
+  }
+
+  useEffect(()=>{
+
+    if(searchText  === ''){
+      setHackathonArr(originalHackathonArr)
+    }else{
+      const arr = originalHackathonArr.filter((item)=> item.heading.includes(searchText));
+      setHackathonArr(arr);
+    }
+  },[searchText])
+
   return (
     <Container
       maxWidth={false}
@@ -52,7 +70,9 @@ const index = ({ setHackathonArr }) => {
         >
           <img src={search} alt="" />
           <textarea
+          onChange={handleChange}
             placeholder="search"
+            value={searchText}
             style={{
               // backgroundColor:"yellow",
               overflow: "hidden",
@@ -81,4 +101,4 @@ const index = ({ setHackathonArr }) => {
   );
 };
 
-export default index;
+export default Challenges;
