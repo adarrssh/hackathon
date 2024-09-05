@@ -1,4 +1,4 @@
-import ai from '../../../assets/image/ai.png'
+import ai from '../../../assets/image/Ai.png'
 import data_scientist from '../../../assets/image/data_scientist.png'
 import robot from '../../../assets/image/robot.png'
 
