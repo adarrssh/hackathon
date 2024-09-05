@@ -102,48 +102,42 @@ export default function DropdownWithBackdrop({
 
   };
 
-  // const removeFilterCondition = (condition) => {
-  //     console.log(condition)
-  //     let filterConditionArr = filterCondition.filter((item)=> item.difficulty != condition);
-  //     setFilterCondition(filterCondition)
-  //     let arr = [];
+  const removeFilterCondition = (condition) => {
 
-  //     // if(condition === 'Easy'){
-  //     //     let filterArr = hackathonArr.filter((item)=>item.difficulty == 'Easy');
-  //     //     console.log(filterArr)
-  //     //     arr.push(...filterArr)
-  //     // }
+      let arr = [];
 
-  //     // if(condition === 'Medium'){
-  //     //     let filterArr = hackathonArr.filter((item)=>item.difficulty == 'Medium');
-  //     //     arr.push(...filterArr)
-  //     // }
+      if(condition === 'Easy'){
+          let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Easy');
+          setHackathonArr([...filterArr]);
+        }
 
-  //     // if(condition === 'Hard'){
-  //     //     let filterArr = hackathonArr.filter((item)=>item.difficulty == 'Hard');
-  //     //     arr.push(...filterArr)
-  //     // }
+      if(condition === 'Medium'){
+          let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Medium');
+          setHackathonArr([...filterArr]);
+      }
 
-  //     if(condition === 'Easy'){
-  //         let filterArr = originalHackathonArr.filter((item)=>item.difficulty == 'Easy');
-  //         console.log(filterArr)
-  //         arr.push(...filterArr)
-  //     }
+      if(condition === 'Hard'){
+          let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Hard');
+          setHackathonArr([...filterArr]);
+      }
 
-  //     if(condition === 'Medium'){
-  //         let filterArr = originalHackathonArr.filter((item)=>item.difficulty == 'Medium');
-  //         arr.push(...filterArr)
-  //     }
+      if(condition === 'Active'){
+          let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Active');
+          console.log(filterArr)
+          arr.push(...filterArr)
+      }
 
-  //     if(condition === 'Hard'){
-  //         let filterArr = originalHackathonArr.filter((item)=>item.difficulty == 'Hard');
-  //         arr.push(...filterArr)
-  //     }
+      if(condition === 'Upcoming'){
+          let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Upcoming');
+          arr.push(...filterArr)
+      }
 
-  //     console.log(arr)
+      if(condition === 'Past'){
+          let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Past');
+          arr.push(...filterArr)
+      }
 
-  //     setHackathonArr(arr)
-  // }
+  }
 
   const handleToggle = (value) => {
     const currentIndex = checkedItems.indexOf(value);
@@ -153,7 +147,9 @@ export default function DropdownWithBackdrop({
       newChecked.push(value);
       setFilteredList((prev) => [...prev, value]);
     } else {
-      // removeFilterCondition(value)
+      let arr = filteredList.filter((item)=> item != value);
+      setFilteredList([...arr]);
+      removeFilterCondition(value)
       newChecked.splice(currentIndex, 1);
     }
 
