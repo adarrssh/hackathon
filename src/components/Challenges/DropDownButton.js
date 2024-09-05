@@ -124,17 +124,17 @@ export default function DropdownWithBackdrop({
       if(condition === 'Active'){
           let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Active');
           console.log(filterArr)
-          arr.push(...filterArr)
+          setHackathonArr([...filterArr]);
       }
 
       if(condition === 'Upcoming'){
           let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Upcoming');
-          arr.push(...filterArr)
+          setHackathonArr([...filterArr]);
       }
 
       if(condition === 'Past'){
           let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Past');
-          arr.push(...filterArr)
+          setHackathonArr([...filterArr]);
       }
 
   }
