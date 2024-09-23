@@ -39,7 +39,6 @@ export default function DropdownWithBackdrop({
     } else {
       addFilterCondition();
     }
-    console.log('inside ')
   }, [filteredList]);
 
   const checkStatus = (item) => {
@@ -86,10 +85,8 @@ export default function DropdownWithBackdrop({
       filteredList.indexOf("Medium") === -1 &&
       filteredList.indexOf("Hard") === -1
     ) {
-      console.log('inside 1st if')
       setHackathonArr(arr);
     } else {
-      console.log("here", filteredList.indexOf("Easy") === -1,filteredList.indexOf("Medium") === -1, filteredList.indexOf("Hard") === -1);
       let levelFilter = [];
 
       if (filteredList.indexOf("Easy") != -1) {
@@ -97,7 +94,7 @@ export default function DropdownWithBackdrop({
         levelFilter.push(...filterArr);
       }
 
-      if (filteredList.indexOf("Medium") != -1) {
+      if (filteredList.indexOf("Medium") !== -1) {
         let filterArr = arr.filter((item) => item.difficulty == "Medium");
         levelFilter.push(...filterArr);
       }

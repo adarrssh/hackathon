@@ -189,9 +189,9 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
             label="Difficulty"
             sx={{ width: "200px", backgroundColor: "white" }}
           >
-            <MenuItem value="easy">Easy</MenuItem>
-            <MenuItem value="medium">Medium</MenuItem>
-            <MenuItem value="hard">Hard</MenuItem>
+            <MenuItem value="Easy">Easy</MenuItem>
+            <MenuItem value="Medium">Medium</MenuItem>
+            <MenuItem value="Hard">Hard</MenuItem>
           </Select>
         </FormControl>
       </Container>

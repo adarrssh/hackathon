@@ -28,7 +28,6 @@ const index = ({hackathonArr}) => {
       >
         {
           hackathonArr.map((item, key) =>
-
             <Hackthon key={key} item={item} />
           )
         }
