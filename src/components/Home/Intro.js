@@ -3,6 +3,7 @@ import React from "react";
 import rocket from "../../assets/image/rocket.png";
 import yellow_rectangle from "../../assets/image/yello_rectangle.png";
 import { useNavigate } from "react-router-dom";
+import './Intro.css'
 
 const Intro = ({ setHackathonArr }) => {
 
@@ -27,9 +28,17 @@ const Intro = ({ setHackathonArr }) => {
       <Container
         maxWidth={"xl"}
         sx={{ 
-            height: "561px", 
+            height: {
+             xs:"100vh",
+             sm:'100vh',
+             md:"100vh",
+             lg:'561px'
+            }, 
             display: "flex", 
-            flexDirection: "row" ,
+            flexDirection:{
+              xs:"column",
+              md: "row"
+              } ,
             // backgroundColor:'grey'
         }}
       >
@@ -45,17 +54,17 @@ const Intro = ({ setHackathonArr }) => {
           }}
         >
           <Container sx={{ position: "absolute", top: "130px" }}>
-            <img src={yellow_rectangle} alt="img" />
+            <img  src={yellow_rectangle} alt="img" />
           </Container>
           <Container sx={{ width: "90%", marginBottom: "-30px", 
             // backgroundColor:"pink" 
             }}>
-            <p style={{ fontSize: "48px", fontWeight: 600, lineHeight:"56px", fontFamily:'poppins' }}>
+            <p className="hero-text">
               Accelerate Innovations <br /> with Global AI Challenges
             </p>
           </Container>
           <Container sx={{ width: "90%", textAlign: "left" }}>
-            <p style={{ fontSize: "20px" }}>
+            <p className="hero-descp-text">
               Al Challenges at DPhi simulate real-world problems. It is a great
               place to put your Al/Data Science skills to test on diverse
               datasets allowing you to foster learning through competitions.
@@ -91,7 +100,7 @@ const Intro = ({ setHackathonArr }) => {
             alignItems: "center",
           }}
         >
-          <img src={rocket} height={"400px"} />
+          <img className="hero-img" src={rocket}/>
         </Container>
       </Container>
     </Container>
