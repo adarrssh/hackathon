@@ -94,9 +94,13 @@ const Intro = ({ setHackathonArr }) => {
         </Container>
         <Container
           style={{
+            // backgroundColor:'pink',
             display: "flex",
             flex: "1",
-            justifyContent: "flex-start",
+            justifyContent: {
+              xs:"center",
+             md:  "flex-start"
+            },
             alignItems: "center",
           }}
         >

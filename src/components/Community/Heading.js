@@ -1,5 +1,6 @@
 import { Container } from '@mui/material'
 import React from 'react'
+import './Heading.css'
 
 const Heading = () => {
   return (
@@ -10,11 +11,8 @@ const Heading = () => {
             paddingTop:'40px'
         }}
     >
-        <p style={{
-            fontSize:'32px',
-            fontWeight:600,
-            lineHeight:'20px'
-        }}>Why Participate in <span style={{color:'#0FA958'}}>AI Challenges?</span></p>
+        <p
+        className='comm-heading'>Why Participate in <span style={{color:'#0FA958'}}>AI Challenges?</span></p>
     </Container>
   )
 }
