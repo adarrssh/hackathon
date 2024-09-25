@@ -54,7 +54,7 @@
   }
 }
 
-@media (min-width: 200px) and (max-width: 900px) {
+@media (min-width: 450px) and (max-width: 900px) {
   .hero-text {
     font-size: 35px;
   }
@@ -65,5 +65,19 @@
 
   .hero-img {
     height: 300px;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 450px) {
+  .hero-text {
+    font-size: 25px;
+  }
+
+  .hero-descp-text {
+    font-size: 10px;
+  }
+
+  .hero-img {
+    height: 200px;
   }
 }
