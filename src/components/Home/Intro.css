@@ -70,11 +70,11 @@
 
 @media (min-width: 100px) and (max-width: 450px) {
   .hero-text {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   .hero-descp-text {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .hero-img {

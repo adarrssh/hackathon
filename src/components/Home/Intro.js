@@ -29,9 +29,9 @@ const Intro = ({ setHackathonArr }) => {
         maxWidth={"xl"}
         sx={{ 
             height: {
-             xs:"100vh",
-             sm:'100vh',
-             md:"100vh",
+             xs:"auto",
+             sm:'auto',
+             md:"auto",
              lg:'561px'
             }, 
             display: "flex", 
@@ -40,12 +40,14 @@ const Intro = ({ setHackathonArr }) => {
               md: "row"
               } 
             }}
+            
       >
         <Container
           className="hero-left-div"
           sx={{
             position: "relative",
-            paddingTop: {xs:"0px",md:"80px"},
+            paddingTop: "80px",
+            paddingBottom:{xs:"10px",sm:"10px",md:"10px"},
             display: "flex",
             flex: "2",
             color: "white",
