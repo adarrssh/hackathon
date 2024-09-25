@@ -108,42 +108,6 @@ export default function DropdownWithBackdrop({
     }
   };
 
-  // const removeFilterCondition = (condition) => {
-
-  //     let arr = [];
-
-  //     if(condition === 'Easy'){
-  //         let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Easy');
-  //         setHackathonArr([...filterArr]);
-  //       }
-
-  //     if(condition === 'Medium'){
-  //         let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Medium');
-  //         setHackathonArr([...filterArr]);
-  //     }
-
-  //     if(condition === 'Hard'){
-  //         let filterArr = hackathonArr.filter((item)=>item.difficulty != 'Hard');
-  //         setHackathonArr([...filterArr]);
-  //     }
-
-  //     if(condition === 'Active'){
-  //         let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Active');
-  //         console.log(filterArr)
-  //         setHackathonArr([...filterArr]);
-  //     }
-
-  //     if(condition === 'Upcoming'){
-  //         let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Upcoming');
-  //         setHackathonArr([...filterArr]);
-  //     }
-
-  //     if(condition === 'Past'){
-  //         let filterArr = originalHackathonArr.filter((item)=>checkStatus(item) == 'Past');
-  //         setHackathonArr([...filterArr]);
-  //     }
-
-  // }
 
   const handleToggle = (value) => {
     const currentIndex = checkedItems.indexOf(value);
