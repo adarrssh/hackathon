@@ -5,6 +5,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import search from "../../assets/image/carbon_search.png";
 import SearchIcon from "@mui/icons-material/Search";
 import DropdownWithBackdrop from "./DropDownButton";
+import './Challenges.css'
 
 const Challenges = ({ hackathonArr ,setHackathonArr }) => {
 
@@ -50,8 +51,10 @@ const Challenges = ({ hackathonArr ,setHackathonArr }) => {
       <Container
         sx={{
           display: "flex",
-          flexDirection: "row",
-
+          flexDirection: {
+            xs:"column",
+            md:"row"
+          },
           paddingTop: "60px",
           paddingBottom: "40px",
         }}
@@ -59,10 +62,8 @@ const Challenges = ({ hackathonArr ,setHackathonArr }) => {
         <Container
           sx={{
             display: "flex",
-            // justifyContent:'center',
             alignItems: "center",
             backgroundColor: "#FFFFFF",
-            // backgroundColor: "yellow",
             width: "85%",
             borderRadius: "12px",
             height: "50px",
@@ -74,7 +75,6 @@ const Challenges = ({ hackathonArr ,setHackathonArr }) => {
             placeholder="search"
             value={searchText}
             style={{
-              // backgroundColor:"yellow",
               overflow: "hidden",
               marginLeft: "10px",
               color: "#858585",
@@ -84,14 +84,21 @@ const Challenges = ({ hackathonArr ,setHackathonArr }) => {
               height: "20px",
               width: "90%",
               border: "none",
-              outline: "none", // This removes the border color on focus
-              resize: "none", // This disables the resize functionality
+              outline: "none", 
+              resize: "none", 
             }}
           />
         </Container>
         <Container
           sx={{
-            width: "15%",
+            paddingTop:{
+              xs:'10px',
+              md:'0px'
+            },
+            width: {
+              xs:'90%',
+              md:'15%'
+            },
           }}
         >
           <DropdownWithBackdrop hackathonArr={hackathonArr} originalHackathonArr={originalHackathonArr} setHackathonArr={setHackathonArr} />

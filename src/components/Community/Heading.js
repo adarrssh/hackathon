@@ -12,7 +12,7 @@ const Heading = () => {
         }}
     >
         <p
-        className='comm-heading'>Why Participate in <span style={{color:'#0FA958'}}>AI Challenges?</span></p>
+        className='comm-heading'>Why Participate in <span  style={{color:'#0FA958'}}>AI Challenges?</span></p>
     </Container>
   )
 }
