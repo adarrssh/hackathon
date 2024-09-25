@@ -5,20 +5,27 @@
   font-family: "Poppins", sans-serif;
 }
 
-.hero-descp-text{
-   font-size: 20px;
+.hero-descp-text {
+  font-size: 20px;
 }
 
-.hero-img{
-    height: 400px;
+.hero-img {
+  height: 400px;
 }
 
-@media (min-width: 1200px) and (max-width: 1250px) {  
-    .hero-descp-text{
-      font-size: 16px;
-    }
+.hero-left-div {
+  flex: 2;
+}
 
+.hero-right-div {
+  flex: 1;
+}
+
+@media (min-width: 1200px) and (max-width: 1250px) {
+  .hero-descp-text {
+    font-size: 16px;
   }
+}
 
 @media (min-width: 1200px) {
   .hero-text {
@@ -29,30 +36,34 @@
     font-size: 20px;
   } */
 
-  .hero-img{
+  .hero-img {
     height: 400px;
   }
- 
 }
 
 @media (min-width: 700px) and (max-width: 900px) {
-
-    .hero-descp-text{
-      font-size: 16px;
-    }
-  
+  /* .hero-left-div {
+    flex: 1;
   }
+
+  .hero-right-div {
+    flex: 1;
+  } */
+  .hero-descp-text {
+    font-size: 16px;
+  }
+}
 
 @media (min-width: 200px) and (max-width: 900px) {
   .hero-text {
     font-size: 35px;
   }
 
-  .hero-descp-text{
+  .hero-descp-text {
     font-size: 14px;
   }
 
-  .hero-img{
+  .hero-img {
     height: 300px;
   }
 }

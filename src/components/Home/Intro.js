@@ -38,27 +38,24 @@ const Intro = ({ setHackathonArr }) => {
             flexDirection:{
               xs:"column",
               md: "row"
-              } ,
-            // backgroundColor:'grey'
-        }}
+              } 
+            }}
       >
         <Container
+          className="hero-left-div"
           sx={{
             position: "relative",
-            paddingTop: "80px",
+            paddingTop: {xs:"0px",md:"80px"},
             display: "flex",
             flex: "2",
             color: "white",
             flexDirection: "column",
-            // backgroundColor:'green'
           }}
         >
           <Container sx={{ position: "absolute", top: "130px" }}>
             <img  src={yellow_rectangle} alt="img" />
           </Container>
-          <Container sx={{ width: "90%", marginBottom: "-30px", 
-            // backgroundColor:"pink" 
-            }}>
+          <Container sx={{ width: "90%", marginBottom: "-30px"}}>
             <p className="hero-text">
               Accelerate Innovations <br /> with Global AI Challenges
             </p>
@@ -93,6 +90,8 @@ const Intro = ({ setHackathonArr }) => {
           </Container>
         </Container>
         <Container
+          className="hero-right-div"
+
           style={{
             // backgroundColor:'pink',
             display: "flex",
