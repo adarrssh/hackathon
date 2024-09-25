@@ -4,11 +4,12 @@ import Statistics from './Statistics'
 import GreyDivider from '../Divider'
 import dataArr from './dataArr'
 import SingleStatistics from './SingleStatistics'
+import './SingleStatistics.css'
 
 const Index = () => {
   return (
-    <Container maxWidth={false} sx={{ backgroundColor: '#002A3B', height: '200px' }}>
-      <Container maxWidth={'xl'} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#002A3B', height: '200px' }}>
+    <Container className='stats-container-parent'  maxWidth={false} sx={{ backgroundColor: '#002A3B'}}>
+      <Container className='stats-container' maxWidth={'xl'}>
 
         {
           dataArr.map((item,key) => (
