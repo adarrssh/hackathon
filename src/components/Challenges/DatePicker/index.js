@@ -37,10 +37,10 @@ export default function ChallengeDatePicker({ defaultDate, setDate }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        className="bb"
+        className="date-picker"
         value={value}
         onChange={handleDateChange}
-        sx={{ position: "absolute", bottom: "1px", left: "25px" }}
+        sx={{ position: "absolute", bottom: "1px",  }}
         renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>

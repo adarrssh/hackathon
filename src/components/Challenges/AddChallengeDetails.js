@@ -12,6 +12,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import ChallengeDatePicker from "./DatePicker";
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
+import './AddChallengeDetails.css'
 
 
 const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
@@ -82,7 +83,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
         <p style={{ fontSize: "24px" }}>Challenge Details</p>
       </Container>
       <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
-        <p style={{ fontSize: "16px" }}>Textarea Heading</p>
+        <p style={{ fontSize: "16px" }}>Challenge Name</p>
         <TextField
           multiline
           sx={{
@@ -130,7 +131,6 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
         <textarea
           id="description"
           style={{
-            width: "1000px",
             height: "252px",
             marginTop: "5px",
             border: "1px solid black",
