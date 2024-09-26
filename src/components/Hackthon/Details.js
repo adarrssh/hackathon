@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import "./Details.css"
 
 // Extend dayjs with the necessary plugins
 dayjs.extend(customParseFormat);
@@ -48,25 +49,32 @@ const Details = ({hackathonArr, setHackathonArr}) => {
           height: "419px",
         }}
       >
-        <Container maxWidth={"xl"} sx={{}}>
+        <Container maxWidth={"xl"}>
           <Container
             disableGutters
             sx={{
+              // backgroundColor:'pink',
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
               alignItems: "flex-start",
-              height: "228px",
-              marginLeft: "100px",
+              height: {
+                xs:"auto",
+                lg:  "228px",
+              },
+              marginLeft: {
+                xs:"0px",
+                md:"100px"
+              },
             }}
           >
             <div
+              className="hackathon-start-date"
               style={{
                 backgroundColor: "#FFCE5C",
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                width: "464px",
                 height: "34px",
                 borderRadius: "5px",
                 paddingLeft: "20px",
@@ -134,7 +142,10 @@ const Details = ({hackathonArr, setHackathonArr}) => {
           sx={{
             height: "66px",
             // backgroundColor: "pink",
-            paddingLeft: "120px",
+            paddingLeft: {
+              xs:"0px",
+              md:"120px",
+            } 
           }}
         >
           <Container
@@ -235,11 +246,15 @@ const Details = ({hackathonArr, setHackathonArr}) => {
         <Container
           disableGutters
           sx={{
-            width: "956px",
+            width: {
+              xs:'auto',
+              lg:"956px",
+            },
             height: "332px",
-            marginLeft: "100px",
-            //  backgroundColor:"yellow" ,
-
+            marginLeft: {
+              xs:"0px",
+              md:"100px",
+            },
             color: "#64607D",
             fontFamily: "Poppins",
             fontSize: "18px",

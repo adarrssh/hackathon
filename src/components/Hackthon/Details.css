@@ -1,0 +1,10 @@
+.hackathon-start-date{
+    width: 464px;
+}
+
+@media (min-width: 150px) and (max-width: 900px) {
+    .hackathon-start-date{
+        width: 90%;
+    }
+    
+  }
