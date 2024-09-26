@@ -5,6 +5,8 @@
 @media (min-width: 150px) and (max-width: 900px) {
     .hackathon-start-date{
         width: 90%;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
     
   }

@@ -46,7 +46,19 @@ const Details = ({hackathonArr, setHackathonArr}) => {
           alignItems: "flex-start",
           flexDirection: "column",
           backgroundColor: "#003145",
-          height: "419px",
+          height:  {
+            xs:"auto",
+            md:  "419px"
+          },
+
+          paddingTop:{
+            xs:"20px",
+            md:"0px"
+          },
+          paddingBottom:{
+            xs:"20px",
+            md:"0px"
+          }
         }}
       >
         <Container maxWidth={"xl"}>
