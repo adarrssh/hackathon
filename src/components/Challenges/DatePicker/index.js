@@ -11,7 +11,7 @@ import "./index.css";
 // Extend dayjs with the customParseFormat plugin
 dayjs.extend(customParseFormat);
 
-export default function ChallengeDatePicker({defaultDate,setDate}) {
+export default function ChallengeDatePicker({ defaultDate, setDate }) {
   
   // Function to format the date
   const formatDate = (date) => {
@@ -19,15 +19,20 @@ export default function ChallengeDatePicker({defaultDate,setDate}) {
     return dayjs(date).format('MMMM D, YYYY HH:mm:ss');
   };
 
-  const curr_date = formatDate(new Date());
-  const [value, setValue] = React.useState(dayjs(curr_date));
+  const [value, setValue] = React.useState(dayjs(defaultDate || new Date()));
+
+  React.useEffect(() => {
+    console.log(defaultDate)
+    if (defaultDate) {
+      setDate(formatDate(defaultDate));
+      setValue(dayjs(defaultDate));
+    }
+  }, [defaultDate]);
 
   const handleDateChange = (newValue) => {
-    console.log(formatDate(newValue));
     setDate(formatDate(newValue));
     setValue(newValue);
   };
-
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

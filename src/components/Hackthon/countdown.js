@@ -93,7 +93,7 @@ const CountdownTimer = ({ item }) => {
       ) : isBetweenStartAndEnd ? (
         <>
           <Container sx={{ textAlign: "center", marginTop: "-10px" }}>
-            <p style={{ fontSize: "14px" }}>End in</p>
+            <p style={{ fontSize: "14px" }}>Ends in</p>
           </Container>
           <Container sx={{ textAlign: "center", marginTop: "-25px" }}>
             <p style={{ fontSize: "18px", fontWeight: "bold" }}>
