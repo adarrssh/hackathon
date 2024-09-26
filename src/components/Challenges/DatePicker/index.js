@@ -22,12 +22,11 @@ export default function ChallengeDatePicker({ defaultDate, setDate }) {
   const [value, setValue] = React.useState(dayjs(defaultDate || new Date()));
 
   React.useEffect(() => {
-    console.log(defaultDate)
     if (defaultDate) {
       setDate(formatDate(defaultDate));
       setValue(dayjs(defaultDate));
     }
-  }, [defaultDate]);
+  }, []);
 
   const handleDateChange = (newValue) => {
     setDate(formatDate(newValue));
