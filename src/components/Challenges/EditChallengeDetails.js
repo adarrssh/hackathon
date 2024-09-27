@@ -24,7 +24,7 @@ const ChallengeDetails = ({ hackathonArr, setHackathonArr }) => {
 
   const item = hackathonArr.find((element) => element.id == id);
 
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState(item.difficulty);
   const [heading, setHeading] = useState(item.heading);
   const [description, setDescription] = useState(item.description);
   const [startDate, setStartDate] = useState(item.startDate);
